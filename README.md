@@ -1,14 +1,15 @@
-# Dear-Universe
 
-AI-Powered Exoplanet Habitability Explorer
+# Dear Universe 
 
-Project Overview
+### AI-Powered Exoplanet Habitability Explorer
+
+## Project Overview
 
 This project explores how artificial intelligence can help us understand planets outside our solar system and their potential to support life.
 
 NASA has discovered thousands of exoplanets, but understanding their scientific information can be difficult for people without an astronomy background. My goal is to create an interactive application that uses AI to explain this information in a simple way.
 
-Proposed Method
+## Proposed Method
 
 I plan to build a Python application where users can explore different exoplanets and compare their properties.
 
@@ -18,28 +19,24 @@ I also plan to use a large language model (LLM) to explain the results in simple
 
 I will evaluate the AI-generated explanations to check their accuracy and how well they represent the scientific data.
 
-Data Sources
+## Data Sources
 
 I plan to use publicly available exoplanet data from the NASA Exoplanet Archive.
 
 https://exoplanetarchive.ipac.caltech.edu/
 
-Tools and Technologies
+## Tools and Technologies
 
-Python
+- Python
+- pandas for processing data
+- Streamlit for the user interface
+- An LLM API for AI-generated explanations
+- NASA Exoplanet Archive for scientific data
 
-pandas for processing data
-
-Streamlit for the user interface
-
-An LLM API for AI-generated explanations
-
-NASA Exoplanet Archive for scientific data
-
-Expected Outcome
+## Expected Outcome
 
 The goal is to create an interactive application where users can explore and compare exoplanets while learning about their potential habitability. The project will focus on making scientific information easier to understand using AI.
 
-References and Acknowledgements
+## References and Acknowledgements
 
 Additional libraries, AI models, and references will be credited as the project develops.
