@@ -5,15 +5,15 @@ NASA_URL = "https://exoplanetarchive.ipac.caltech.edu/TAP/sync"
 
 PLANET_NAMES = [
     "Kepler-186 f",
-    "Kepler-452 b",
-    "Kepler-22 b",
     "TRAPPIST-1 e",
-    "TRAPPIST-1 f",
-    "TRAPPIST-1 g",
-    "Proxima Cen b",
-    "TOI-700 d",
-    "TOI-700 e",
-    "LHS 1140 b"
+    "LHS 1140 b",
+    "HD 189733 b",
+    "55 Cnc e",
+    "Kepler-16 b",
+    "WASP-12 b",
+    "KELT-9 b",
+    "WASP-76 b",
+    "GJ 1214 b"
 ]
 
 

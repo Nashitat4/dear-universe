@@ -212,7 +212,7 @@ function showPlanetDetails(planet, index) {
                 );
             }
 
-            aiResult.textContent = result.explanation;
+            aiResult.textContent = result.explanation.replace(/\*\*/g, "");
             aiButton.textContent = "✦ Generate Again";
 
         } catch (error) {

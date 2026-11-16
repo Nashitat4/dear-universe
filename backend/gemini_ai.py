@@ -52,6 +52,11 @@ Important rules:
 - Do not claim that the planet supports life.
 - If information is unknown, say so.
 - Keep the response around 150 to 200 words.
+
+- Do not add historical facts or discovery claims
+  unless they are included in the supplied data.
+- Clearly separate confirmed measurements from
+  scientific possibilities or assumptions.
 """
 
     response = client.models.generate_content(
