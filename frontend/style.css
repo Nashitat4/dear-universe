@@ -1,4 +1,8 @@
 
+/* =====================================
+   GENERAL STYLES
+===================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -15,7 +19,11 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Navigation */
+
+/* =====================================
+   NAVIGATION
+===================================== */
+
 .navbar {
     position: absolute;
     top: 0;
@@ -49,7 +57,11 @@ body {
     color: #a8bfff;
 }
 
-/* Homepage */
+
+/* =====================================
+   HOMEPAGE
+===================================== */
+
 .hero {
     min-height: 100vh;
     position: relative;
@@ -58,22 +70,19 @@ body {
     padding: 100px 7%;
     overflow: hidden;
 
-background: radial-gradient(
-    ellipse at 75% 50%,
-    #070a14 0%,
-    #03050d 45%,
-    #010208 100%
-);
+    background: radial-gradient(
+        ellipse at 75% 50%,
+        #070a14 0%,
+        #03050d 45%,
+        #010208 100%
+    );
 }
-
-/* Galaxy */
 
 .galaxy {
     position: absolute;
     right: -3%;
     top: 50%;
     transform: translateY(-50%);
-
     width: 65%;
     height: 90%;
 
@@ -106,6 +115,7 @@ background: radial-gradient(
 
 
 /* Sparkling stars */
+
 .stars {
     position: absolute;
     inset: 0;
@@ -166,7 +176,9 @@ background: radial-gradient(
     }
 }
 
-/* Main text */
+
+/* Homepage text */
+
 .hero-content {
     position: relative;
     z-index: 3;
@@ -203,7 +215,11 @@ h1 span {
     margin-bottom: 35px;
 }
 
-/* Buttons */
+
+/* =====================================
+   GENERAL BUTTONS
+===================================== */
+
 button {
     padding: 16px 30px;
     background: #a6baff;
@@ -221,7 +237,16 @@ button:hover {
     transform: translateY(-3px);
 }
 
-/* Explore and About sections */
+button:focus-visible {
+    outline: 2px solid #e0e5ee;
+    outline-offset: 4px;
+}
+
+
+/* =====================================
+   GENERAL SECTIONS
+===================================== */
+
 .section {
     padding: 100px 7%;
     min-height: 350px;
@@ -238,146 +263,19 @@ button:hover {
     line-height: 1.8;
 }
 
-/* Mobile screens */
-@media (max-width: 900px) {
-    .hero {
-        align-items: flex-start;
-        padding-top: 180px;
-    }
-
-    .galaxy {
-        width: 100%;
-        height: 55%;
-        right: -20%;
-        top: 70%;
-        opacity: 0.5;
-    }
-
-    .hero-content {
-        z-index: 3;
-    }
-
-    .nav-links {
-        gap: 15px;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .stars,
-    .stars::before,
-    .stars::after {
-        animation: none;
-    }
-}
-
-
-
-
-/* ==================================
-   EXPLORE PLANETS SECTION
-================================== */
-
-#explore {
-    padding: 100px 8%;
-    background: #030615;
-    min-height: 100vh;
-}
-
-#explore h2 {
-    font-size: 38px;
-    color: #ffffff;
-    margin-bottom: 20px;
-}
-
-#explore > p {
-    color: #aebcdb;
-    font-size: 16px;
-    margin-bottom: 40px;
-}
-
-/* Planet card grid */
-
-.planet-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 25px;
-    margin-top: 40px;
-}
-
-/* Individual planet cards */
-
-.planet-card {
-    background: linear-gradient(
-        145deg,
-        #111b35,
-        #080d20
-    );
-
-    border: 1px solid #283655;
-    border-radius: 18px;
-    padding: 28px;
-
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-
-    transition: transform 0.3s ease,
-                border-color 0.3s ease,
-                box-shadow 0.3s ease;
-}
-
-.planet-card:hover {
-    transform: translateY(-6px);
-    border-color: #a6baff;
-    box-shadow: 0 12px 35px rgba(80, 110, 200, 0.15);
-}
-
-.planet-card h3 {
-    color: #b9c8ff;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.planet-card p {
-    color: #c5cde0;
-    font-size: 14px;
-    line-height: 1.8;
-    margin-bottom: 8px;
-}
-
-.planet-card strong {
-    color: #ffffff;
-}
-
-/* Responsive layout */
-
-@media (max-width: 1000px) {
-    .planet-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 650px) {
-    .planet-grid {
-        grid-template-columns: 1fr;
-    }
-
-    #explore {
-        padding: 70px 6%;
-    }
-
-    #explore h2 {
-        font-size: 30px;
-    }
-}
-
-
 
 /* =====================================
-   FLOATING EXOPLANET EXPLORER
+   EXPLORE PLANETS SECTION
 ===================================== */
 
 #explore {
-    background:
-        radial-gradient(ellipse at 50% 45%, #101b39 0%, #050a1b 48%, #02040e 100%);
+    background: radial-gradient(
+        ellipse at 50% 45%,
+        #101b39 0%,
+        #050a1b 48%,
+        #02040e 100%
+    );
+
     padding: 100px 8%;
     min-height: 100vh;
 }
@@ -394,7 +292,8 @@ button:hover {
     margin-bottom: 50px;
 }
 
-/* Planet layout */
+
+/* Planet gallery layout */
 
 .planet-grid {
     display: grid;
@@ -424,6 +323,11 @@ button:hover {
     margin-bottom: 25px;
 }
 
+
+/* =====================================
+   FLOATING PLANETS
+===================================== */
+
 .planet-sphere {
     display: block;
     position: relative;
@@ -433,29 +337,30 @@ button:hover {
     flex-shrink: 0;
 
     background-color: var(--planet-base, #42648d);
+
     background-image:
         radial-gradient(
             ellipse at 30% 25%,
-            rgba(255,255,255,0.35) 0%,
+            rgba(255, 255, 255, 0.35) 0%,
             transparent 42%
         ),
         radial-gradient(
             ellipse at 75% 75%,
-            rgba(0,0,0,0.92) 0%,
+            rgba(0, 0, 0, 0.92) 0%,
             transparent 70%
         ),
         repeating-linear-gradient(
             165deg,
             transparent 0px,
-            var(--planet-band, rgba(255,255,255,0.12)) 12px,
+            var(--planet-band, rgba(255, 255, 255, 0.12)) 12px,
             transparent 26px,
             transparent 40px
         );
 
     box-shadow:
-        inset -25px -12px 35px rgba(0,0,0,0.7),
-        inset 12px 5px 20px rgba(255,255,255,0.12),
-        0 0 35px var(--planet-glow, rgba(80,120,220,0.25));
+        inset -25px -12px 35px rgba(0, 0, 0, 0.7),
+        inset 12px 5px 20px rgba(255, 255, 255, 0.12),
+        0 0 35px var(--planet-glow, rgba(80, 120, 220, 0.25));
 
     animation: planet-float 5s ease-in-out infinite;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -468,15 +373,14 @@ button:hover {
     inset: 0;
     border-radius: 50%;
 
-    background:
-        repeating-linear-gradient(
-            105deg,
-            transparent 0px,
-            rgba(255,255,255,0.08) 15px,
-            transparent 35px,
-            rgba(0,0,0,0.15) 58px,
-            transparent 85px
-        );
+    background: repeating-linear-gradient(
+        105deg,
+        transparent 0px,
+        rgba(255, 255, 255, 0.08) 15px,
+        transparent 35px,
+        rgba(0, 0, 0, 0.15) 58px,
+        transparent 85px
+    );
 
     background-size: 260% 100%;
     animation: planet-rotate 18s linear infinite;
@@ -487,86 +391,98 @@ button:hover {
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background:
-        radial-gradient(
-            circle at 32% 28%,
-            transparent 15%,
-            rgba(0,0,0,0.15) 50%,
-            rgba(0,0,0,0.75) 100%
-        );
+
+    background: radial-gradient(
+        circle at 32% 28%,
+        transparent 15%,
+        rgba(0, 0, 0, 0.15) 50%,
+        rgba(0, 0, 0, 0.75) 100%
+    );
+
     pointer-events: none;
+}
+
+.planet-visual-button:hover {
+    background: transparent;
 }
 
 .planet-visual-button:hover .planet-sphere {
     transform: scale(1.1);
+
     box-shadow:
-        inset -25px -12px 35px rgba(0,0,0,0.65),
-        0 0 60px var(--planet-glow, rgba(80,120,220,0.5));
+        inset -25px -12px 35px rgba(0, 0, 0, 0.65),
+        0 0 60px var(--planet-glow, rgba(80, 120, 220, 0.5));
 }
 
-/* Different artistic planet colors */
+
+/* =====================================
+   ARTISTIC PLANET COLORS
+===================================== */
 
 .planet-style-0 {
     --planet-base: #688ea1;
     --planet-band: #b5cbd0;
-    --planet-glow: rgba(102,177,217,0.35);
+    --planet-glow: rgba(102, 177, 217, 0.35);
 }
 
 .planet-style-1 {
     --planet-base: #b98757;
     --planet-band: #e2bc89;
-    --planet-glow: rgba(224,151,79,0.3);
+    --planet-glow: rgba(224, 151, 79, 0.3);
 }
 
 .planet-style-2 {
     --planet-base: #577cbb;
     --planet-band: #9fc6e8;
-    --planet-glow: rgba(85,149,235,0.35);
+    --planet-glow: rgba(85, 149, 235, 0.35);
 }
 
 .planet-style-3 {
     --planet-base: #5e8893;
     --planet-band: #9dc6bb;
-    --planet-glow: rgba(99,190,184,0.3);
+    --planet-glow: rgba(99, 190, 184, 0.3);
 }
 
 .planet-style-4 {
     --planet-base: #a57b83;
     --planet-band: #d7aeb1;
-    --planet-glow: rgba(199,112,151,0.3);
+    --planet-glow: rgba(199, 112, 151, 0.3);
 }
 
 .planet-style-5 {
     --planet-base: #7d75ad;
     --planet-band: #b5a5db;
-    --planet-glow: rgba(143,125,222,0.3);
+    --planet-glow: rgba(143, 125, 222, 0.3);
 }
 
 .planet-style-6 {
     --planet-base: #ad6452;
     --planet-band: #db9a7b;
-    --planet-glow: rgba(220,105,77,0.3);
+    --planet-glow: rgba(220, 105, 77, 0.3);
 }
 
 .planet-style-7 {
     --planet-base: #588b9f;
     --planet-band: #99cad6;
-    --planet-glow: rgba(89,175,214,0.3);
+    --planet-glow: rgba(89, 175, 214, 0.3);
 }
 
 .planet-style-8 {
     --planet-base: #8e9eae;
     --planet-band: #d4dce2;
-    --planet-glow: rgba(160,190,230,0.3);
+    --planet-glow: rgba(160, 190, 230, 0.3);
 }
 
 .planet-style-9 {
     --planet-base: #657e99;
     --planet-band: #b0b8c9;
-    --planet-glow: rgba(112,147,218,0.35);
+    --planet-glow: rgba(112, 147, 218, 0.35);
 }
 
-/* Information below each planet */
+
+/* =====================================
+   PLANET GALLERY INFORMATION
+===================================== */
 
 .planet-item h3 {
     font-size: 23px;
@@ -591,26 +507,29 @@ button:hover {
 .planet-explore-link {
     margin-top: 20px;
     padding: 10px 16px;
-    border: 1px solid rgba(156,180,255,0.35);
+    border: 1px solid rgba(156, 180, 255, 0.35);
     border-radius: 25px;
     color: #b9caff;
-    background: rgba(120,145,220,0.08);
+    background: rgba(120, 145, 220, 0.08);
     font-size: 13px;
     cursor: pointer;
     transition: background 0.2s ease;
 }
 
 .planet-explore-link:hover {
-    background: rgba(120,145,220,0.2);
+    background: rgba(120, 145, 220, 0.2);
 }
 
-/* Detailed planet view */
+
+/* =====================================
+   INDIVIDUAL PLANET PAGE
+===================================== */
 
 .planet-detail-view {
     grid-column: 1 / -1;
     display: grid;
-    grid-template-columns: minmax(220px, 1fr) 1.4fr;
-    gap: 35px 65px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 40px 60px;
     align-items: center;
     width: 100%;
     padding: 25px 0 65px;
@@ -627,38 +546,67 @@ button:hover {
     cursor: pointer;
 }
 
+.planet-back-button:hover {
+    background: rgba(120, 145, 220, 0.15);
+}
+
 .planet-detail-sphere {
-    width: min(100%, 330px);
+    grid-column: 2;
+    grid-row: 2;
+    width: min(100%, 440px);
+    max-width: 440px;
     height: auto;
     aspect-ratio: 1;
     justify-self: center;
 }
 
+.planet-detail-content {
+    grid-column: 1;
+    grid-row: 2;
+    min-width: 0;
+}
+
 .planet-detail-content h3 {
-    font-size: 40px;
-    color: #e0e7ff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(42px, 5vw, 68px);
+    font-weight: normal;
+    letter-spacing: -1.5px;
+    color: #f3f0eb;
     margin-bottom: 15px;
 }
 
 .detail-subtitle {
     color: #aebcdb;
     margin-bottom: 28px;
+    font-size: 16px;
+    line-height: 1.7;
 }
+
+
+/* NASA measurements */
 
 .planet-detail-measurements {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
+    gap: 24px;
 }
 
 .planet-detail-measurements p {
-    color: #c3cee7;
+    font-size: 17px;
+    color: #e4e9f3;
     line-height: 1.7;
+    border-bottom: 1px solid rgba(190, 205, 235, 0.16);
+    padding-bottom: 14px;
 }
 
 .planet-detail-measurements strong {
     display: block;
-    color: white;
+    color: #9daec9;
+    font-size: 12px;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 7px;
 }
 
 .planet-science-note {
@@ -668,12 +616,121 @@ button:hover {
     margin-top: 30px;
 }
 
-/* Animations */
+
+/* =====================================
+   A LETTER FROM THE UNIVERSE
+===================================== */
+
+.planet-ai-section {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: 900px;
+    justify-self: center;
+    margin-top: 25px;
+    padding: 30px 38px;
+    background: rgba(8, 13, 26, 0.75);
+    border: 1px solid rgba(175, 194, 225, 0.15);
+    border-radius: 12px;
+}
+
+.planet-ai-eyebrow {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #a7b5cd;
+    margin-bottom: 18px;
+}
+
+.planet-ai-heading {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(34px, 4vw, 52px);
+    font-weight: normal;
+    color: #f3f0eb;
+    margin-bottom: 10px;
+}
+
+.planet-ai-description {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #bdc8db;
+    margin-bottom: 18px;
+}
+
+
+/* Unfold Its Story button */
+
+.planet-ai-button {
+    background: #e0e5ee;
+    color: #101827;
+    border-radius: 6px;
+    padding: 14px 26px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.planet-ai-button:hover {
+    background: #ffffff;
+}
+
+.planet-ai-button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+
+/* Gemini explanation */
+
+.planet-ai-result {
+    margin-top: 35px;
+    color: #d5def0;
+    font-size: 17px;
+    line-height: 1.9;
+    white-space: pre-line;
+}
+
+.planet-ai-result:empty {
+    display: none;
+}
+
+.planet-ai-story-section {
+    padding: 25px 0;
+    border-top: 1px solid rgba(175, 194, 225, 0.18);
+}
+
+.planet-ai-story-section h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 26px;
+    font-weight: normal;
+    color: #f0eee9;
+    margin-bottom: 12px;
+}
+
+.planet-ai-story-section p {
+    font-size: 17px;
+    line-height: 1.9;
+    color: #c6d0e0;
+}
+
+
+/* Gemini and NASA attribution */
+
+.planet-ai-credit {
+    margin-top: 22px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(175, 194, 225, 0.15);
+    color: #93a3bd;
+    font-size: 13px;
+}
+
+
+/* =====================================
+   ANIMATIONS
+===================================== */
 
 @keyframes planet-float {
     0%, 100% {
         translate: 0 0;
     }
+
     50% {
         translate: 0 -13px;
     }
@@ -683,18 +740,51 @@ button:hover {
     from {
         background-position: 0% 0%;
     }
+
     to {
         background-position: 100% 0%;
     }
 }
 
-/* Smaller screens */
 
-@media (max-width: 950px) {
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
+
+/* Tablets */
+
+@media (max-width: 1000px) {
     .planet-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
+
+/* Smaller tablets */
+
+@media (max-width: 900px) {
+    .hero {
+        align-items: flex-start;
+        padding-top: 180px;
+    }
+
+    .galaxy {
+        width: 100%;
+        height: 55%;
+        right: -20%;
+        top: 70%;
+        opacity: 0.5;
+    }
+
+    .hero-content {
+        z-index: 3;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+}
+
+/* Mobile phones */
 
 @media (max-width: 650px) {
     .planet-grid {
@@ -702,20 +792,76 @@ button:hover {
         gap: 60px;
     }
 
+    #explore {
+        padding: 70px 6%;
+    }
+
+    #explore h2 {
+        font-size: 30px;
+    }
+
     .planet-detail-view {
         grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .planet-back-button {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .planet-detail-sphere {
+        grid-column: 1;
+        grid-row: 2;
+        width: min(100%, 300px);
+    }
+
+    .planet-detail-content {
+        grid-column: 1;
+        grid-row: 3;
     }
 
     .planet-detail-content h3 {
-        font-size: 32px;
+        font-size: 38px;
     }
 
     .planet-detail-measurements {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+
+    .planet-detail-measurements p {
+        font-size: 14px;
+    }
+
+    .planet-ai-section {
+        grid-column: 1;
+        grid-row: 4;
+        padding: 25px 22px;
+        margin-top: 25px;
+    }
+
+    .planet-ai-heading {
+        font-size: 34px;
+    }
+
+    .planet-ai-description,
+    .planet-ai-result,
+    .planet-ai-story-section p {
+        font-size: 16px;
+    }
+
+    .section {
+        padding: 70px 6%;
     }
 }
 
+/* Reduce animations when requested */
+
 @media (prefers-reduced-motion: reduce) {
+    .stars,
+    .stars::before,
+    .stars::after,
     .planet-sphere,
     .planet-sphere::before {
         animation: none;

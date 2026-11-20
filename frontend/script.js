@@ -4,6 +4,7 @@ const planetContainer = document.getElementById("planet-container");
 
 let allPlanets = [];
 
+// Scroll to the planet gallery
 exploreButton.addEventListener("click", function () {
     document.getElementById("explore").scrollIntoView({
         behavior: "smooth"
@@ -11,6 +12,7 @@ exploreButton.addEventListener("click", function () {
 });
 
 
+// Format numbers
 function formatValue(value, decimals = 2) {
     if (value === null || value === undefined) {
         return "Unknown";
@@ -20,6 +22,7 @@ function formatValue(value, decimals = 2) {
 }
 
 
+// Format NASA measurements
 function measurement(value, unit, decimals = 2) {
     if (value === null || value === undefined) {
         return "Unknown";
@@ -29,6 +32,7 @@ function measurement(value, unit, decimals = 2) {
 }
 
 
+// Create a measurement label and value
 function createDetail(label, value) {
     const paragraph = document.createElement("p");
 
@@ -93,7 +97,7 @@ function showAllPlanets() {
         const exploreLink = document.createElement("button");
         exploreLink.className = "planet-explore-link";
         exploreLink.type = "button";
-        exploreLink.textContent = "Explore Planet →";
+        exploreLink.textContent = "Explore Planet";
 
         function openDetails() {
             showPlanetDetails(planet, index);
@@ -112,6 +116,66 @@ function showAllPlanets() {
 }
 
 
+// Display Gemini's explanation in separate sections
+function displayExplanation(container, explanation) {
+    container.replaceChildren();
+
+    const headings = [
+        "A WORLD BEYOND EARTH",
+        "WHAT SCIENCE TELLS US",
+        "COULD LIFE EXIST HERE?"
+    ];
+
+    // Remove Markdown formatting
+    const cleaned = explanation
+        .replace(/[*#]/g, "")
+        .replace(/\r/g, "")
+        .trim();
+
+    // Find the three headings
+    const headingPattern =
+        /(A WORLD BEYOND EARTH|WHAT SCIENCE TELLS US|COULD LIFE EXIST HERE\?)/gi;
+
+    const parts = cleaned.split(headingPattern);
+
+    let currentSection = null;
+
+    parts.forEach(function (part) {
+        const text = part.trim();
+
+        if (!text) {
+            return;
+        }
+
+        const normalized = text
+            .replace(/^\d+\.\s*/, "")
+            .replace(/:$/, "")
+            .trim()
+            .toUpperCase();
+
+        if (headings.includes(normalized)) {
+            currentSection = document.createElement("section");
+            currentSection.className = "planet-ai-story-section";
+
+            const heading = document.createElement("h3");
+            heading.textContent = text.replace(/:$/, "");
+
+            currentSection.appendChild(heading);
+            container.appendChild(currentSection);
+        } else {
+            const paragraph = document.createElement("p");
+            paragraph.textContent = text;
+
+            if (currentSection) {
+                currentSection.appendChild(paragraph);
+            } else {
+                container.appendChild(paragraph);
+            }
+        }
+    });
+}
+
+
 // Display one planet's details
 function showPlanetDetails(planet, index) {
     planetContainer.innerHTML = "";
@@ -119,13 +183,15 @@ function showPlanetDetails(planet, index) {
     const detailView = document.createElement("div");
     detailView.className = "planet-detail-view";
 
+    // Back button
     const backButton = document.createElement("button");
     backButton.className = "planet-back-button";
     backButton.type = "button";
-    backButton.textContent = "← Back to All Planets";
+    backButton.textContent = "Back to All Planets";
 
     backButton.addEventListener("click", showAllPlanets);
 
+    // Artistic planet illustration
     const visual = document.createElement("div");
     visual.className =
         "planet-sphere planet-detail-sphere planet-style-" +
@@ -133,6 +199,7 @@ function showPlanetDetails(planet, index) {
 
     visual.setAttribute("aria-hidden", "true");
 
+    // Planet information
     const content = document.createElement("div");
     content.className = "planet-detail-content";
 
@@ -144,6 +211,7 @@ function showPlanetDetails(planet, index) {
     subtitle.textContent =
         "Explore the scientific measurements of this distant world.";
 
+    // NASA measurements
     const measurements = document.createElement("div");
     measurements.className = "planet-detail-measurements";
 
@@ -162,6 +230,7 @@ function showPlanetDetails(planet, index) {
         );
     });
 
+    // Scientific disclaimer
     const note = document.createElement("p");
     note.className = "planet-science-note";
     note.textContent =
@@ -169,29 +238,48 @@ function showPlanetDetails(planet, index) {
         "Equilibrium temperature is an estimate, not a confirmed " +
         "surface temperature. Planet appearance is an artistic illustration.";
 
-    // AI explanation section
-    const aiSection = document.createElement("div");
-    aiSection.style.marginTop = "35px";
+    // A Letter from the Universe section
+    const aiSection = document.createElement("section");
+    aiSection.className = "planet-ai-section";
 
+    const aiEyebrow = document.createElement("p");
+    aiEyebrow.className = "planet-ai-eyebrow";
+    aiEyebrow.textContent = "THE STORY BEHIND THE SCIENCE";
+
+    const aiHeading = document.createElement("h2");
+    aiHeading.className = "planet-ai-heading";
+    aiHeading.textContent = "A Letter from the Universe";
+
+    const aiDescription = document.createElement("p");
+    aiDescription.className = "planet-ai-description";
+    aiDescription.textContent =
+        "Every planet has a story. Discover what science reveals " +
+        "about " + planet.pl_name + ".";
+
+    // Gemini explanation button
     const aiButton = document.createElement("button");
     aiButton.type = "button";
-    aiButton.className = "planet-explore-link";
-    aiButton.textContent = "✦ Explain with Gemini AI";
-    aiButton.style.fontSize = "15px";
-    aiButton.style.padding = "14px 22px";
+    aiButton.className = "planet-ai-button";
+    aiButton.textContent = "Unfold Its Story";
 
+    // Explanation results
     const aiResult = document.createElement("div");
-    aiResult.style.marginTop = "25px";
-    aiResult.style.color = "#d5def4";
-    aiResult.style.lineHeight = "1.9";
-    aiResult.style.whiteSpace = "pre-wrap";
+    aiResult.className = "planet-ai-result";
+    aiResult.setAttribute("aria-live", "polite");
 
+    // Gemini and NASA attribution
+    const aiCredit = document.createElement("p");
+    aiCredit.className = "planet-ai-credit";
+    aiCredit.textContent =
+        "Powered by Gemini AI · Data from NASA Exoplanet Archive";
+
+    // Generate explanation using Flask and Gemini
     aiButton.addEventListener("click", async function () {
         aiButton.disabled = true;
-        aiButton.textContent = "Generating explanation...";
+        aiButton.textContent = "Discovering this world...";
 
         aiResult.textContent =
-            "Gemini is studying NASA's measurements. Please wait...";
+            "Reading the measurements of this distant world...";
 
         try {
             const response = await fetch("/api/explain", {
@@ -212,36 +300,59 @@ function showPlanetDetails(planet, index) {
                 );
             }
 
-            aiResult.textContent = result.explanation.replace(/\*\*/g, "");
-            aiButton.textContent = "✦ Generate Again";
+            if (
+                typeof result.explanation !== "string" ||
+                !result.explanation.trim()
+            ) {
+                throw new Error("Gemini returned an empty explanation.");
+            }
+
+            displayExplanation(aiResult, result.explanation);
+
+            aiButton.textContent = "Story Unfolded";
+            aiButton.disabled = true;
 
         } catch (error) {
             console.error(error);
 
             aiResult.textContent =
-                "Sorry, the AI explanation could not be generated. " +
-                "Please try again.";
+                "The story could not be loaded. Please try again.";
 
-            aiButton.textContent = "✦ Try Again";
-        } finally {
-            aiButton.disabled = false;
-        }
+            aiButton.textContent = "Try Again";
+
+            } finally {
+                if (aiButton.textContent === "Try Again") {
+                    aiButton.disabled = false;
+                }
+            }
     });
 
+    // Build AI section
+    aiSection.appendChild(aiEyebrow);
+    aiSection.appendChild(aiHeading);
+    aiSection.appendChild(aiDescription);
     aiSection.appendChild(aiButton);
     aiSection.appendChild(aiResult);
+    aiSection.appendChild(aiCredit);
 
+    // Build planet information
     content.appendChild(title);
     content.appendChild(subtitle);
     content.appendChild(measurements);
     content.appendChild(note);
-    content.appendChild(aiSection);
 
+    // Build individual planet page
     detailView.appendChild(backButton);
     detailView.appendChild(visual);
     detailView.appendChild(content);
+    detailView.appendChild(aiSection);
 
     planetContainer.appendChild(detailView);
+
+    // Move to the top of the planet section
+    document.getElementById("explore").scrollIntoView({
+        behavior: "smooth"
+    });
 }
 
 
@@ -272,4 +383,5 @@ async function loadPlanets() {
 }
 
 
+// Start the application
 loadPlanets();
